@@ -5,7 +5,7 @@
 #########################
 
 # set home directory for txt files
-ome <- "/mnt/swift/Jayesh/script.jayesh.edited/txt/"
+home <- "/mnt/swift/Jayesh/script.jayesh.edited/txt/"
 
 library(dgof)
 library(tidyverse)
