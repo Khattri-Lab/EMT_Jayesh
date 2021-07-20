@@ -5,7 +5,7 @@
 #########################
 
 # set home directory for txt files
-ome <- "/mnt/swift/Jayesh/script.jayesh.edited/txt/"
+home <- "/mnt/swift/Jayesh/emt/script.jayesh.edited/txt/"
 
 library(dgof)
 library(tidyverse)
@@ -280,3 +280,57 @@ ggsave(paste("./plt/CD8.Tem.violin.plot.with.pvalues.final",".png",sep = ""), fi
 # 1: Removed 83 rows containing non-finite values (stat_ydensity). 
 # 2: Removed 83 rows containing non-finite values (stat_boxplot). 
 # 3: Removed 83 rows containing non-finite values (stat_summary).
+
+# for CD274----------------------
+raw_list <- initial_violin_plotter("CD274")
+raw_list$plot
+ylimit = c(-1.153,4)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+final_plot <- final_plot+ylab("PD-L1")
+ggsave(paste("./plt/PDL1.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 49 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 49 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 49 rows containing non-finite values (stat_summary).
+
+# for SIGLEC7----------------------
+raw_list <- initial_violin_plotter("SIGLEC7")
+raw_list$plot
+ylimit = c(-1.155,4)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+final_plot
+ggsave(paste("./plt/SIGLEC7.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 51 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 51 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 51 rows containing non-finite values (stat_summary).
+
+
+# for TNFRSF4----------------------
+raw_list <- initial_violin_plotter("TNFRSF4")
+raw_list$plot
+ylimit = c(-1.294,4)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+final_plot
+ggsave(paste("./plt/TNFRSF4.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 62 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 62 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 62 rows containing non-finite values (stat_summary).
+
+
+# for LAG3----------------------
+raw_list <- initial_violin_plotter("LAG3")
+raw_list$plot
+ylimit = c(-0.92,3.5)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+final_plot
+ggsave(paste("./plt/LAG3.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 76 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 76 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 76 rows containing non-finite values (stat_summary).
