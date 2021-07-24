@@ -10,6 +10,24 @@ library(tidyverse)
 
 data <- read.table(paste0(home,"final.working.data_v3.txt",sep=""), header = T, sep = "\t")
 
+crap <- c()
+crapn <- c()
+crapf <- c()
+crapd <- c()
+crapr <- c()
+# measuring spread of cancer types
+for (i in unique(data$ctype)) {
+  crapn <- rbind(crapn, i)
+  crap <- rbind(crap, IQR((data %>% filter(ctype==i))$score))
+  crapr <- rbind(crapr, range((data %>% filter(ctype==i))$score))
+  crapd <- rbind(crapd, range((data %>% filter(ctype==i))$score)[2]-range((data %>% filter(ctype==i))$score)[1])
+  crapf <- cbind(crapn, crap, crapr, crapd)
+}
+
+crapf <- data.frame(crapf)
+colnames(crapf) <- c("ctype","IQR","min","max","max-min")
+write.table(crapf, file = "~/Dropbox/data.spread.txt", row.names = F, sep = '\t')
+
 epithelial <- c()
 mesenchymal <- c()
 intermediate <- c()
