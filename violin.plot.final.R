@@ -5,11 +5,7 @@
 #########################
 
 # set home directory for txt files
-<<<<<<< HEAD
 home <- "/mnt/swift/Jayesh/emt/script.jayesh.edited/txt/"
-=======
-home <- "/mnt/swift/Jayesh/script.jayesh.edited/txt/"
->>>>>>> e3ebe4bba93f9aca12a345dfbae7e38c33ba9a94
 
 library(dgof)
 library(tidyverse)
