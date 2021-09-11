@@ -376,26 +376,6 @@ ggsave(paste("./plt/activated.stroma.violin.plot.with.pvalues.final",".png",sep 
 # 2: Removed 19 rows containing non-finite values (stat_boxplot). 
 # 3: Removed 19 rows containing non-finite values (stat_summary).
 
-# for Gajewski --------------------
-# plot initial
-raw_list <- initial_violin_plotter("activated.stroma.sig")
-# view the raw plot and look at data.copy's gene column to determine 
-# upper and lower y limits for the final plot
-raw_list$plot
-# set y limit
-ylimit = c(-1.07,5)
-final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
-# view final plot
-final_plot
-final_plot <- final_plot+ylab("Activated Stroma")
-# save the plot
-ggsave(paste("./plt/activated.stroma.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
-# for above: 
-# Warning messages:
-# 1: Removed 20 rows containing non-finite values (stat_ydensity). 
-# 2: Removed 20 rows containing non-finite values (stat_boxplot). 
-# 3: Removed 20 rows containing non-finite values (stat_summary).
-
 # for CD8 9 gene inflammatory signature --------------------
 # plot initial
 raw_list <- initial_violin_plotter("cd8.9gene.sig")
