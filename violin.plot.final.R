@@ -5,7 +5,7 @@
 #########################
 
 # set home directory for txt files
-home <- "/mnt/swift/Jayesh/emt/script.jayesh.edited/txt/"
+home <- "/mnt/swift/Jayesh/emt/script.jayesh.edited/"
 
 library(dgof)
 library(tidyverse)
@@ -23,7 +23,7 @@ stars.pval <- function(p.value)
 
 
 # read data
-data <- read.table(paste0(home,'final.working.data_v3.txt',sep=''), header = T, sep = '\t')
+data <- read.table(paste0(home,'final.working.data_v4.txt',sep=''), header = T, sep = '\t')
 data.copy <- data
 
 initial_violin_plotter <- function(gene){
@@ -39,7 +39,7 @@ initial_violin_plotter <- function(gene){
   data %>% select(Sample.ID, score, class, ctype, all_of(gene)) -> data.copy
   data.copy$class <- as.factor(data.copy$class)
   data.copy <- data.copy %>% filter(class != "intermediate")
-  # view command insid function because data.copy is a local variable, and out side
+  # view command inside function because data.copy is a local variable, and out side
   # the function it will not be saved
   View(data.copy)
   
@@ -334,3 +334,84 @@ ggsave(paste("./plt/LAG3.violin.plot.with.pvalues.final",".png",sep = ""), final
 # 1: Removed 76 rows containing non-finite values (stat_ydensity). 
 # 2: Removed 76 rows containing non-finite values (stat_boxplot). 
 # 3: Removed 76 rows containing non-finite values (stat_summary).
+
+
+# for TIM3--------------------
+# plot initial
+raw_list <- initial_violin_plotter("HAVCR2")
+# view the raw plot and look at data.copy's gene column to determine 
+# upper and lower y limits for the final plot
+raw_list$plot
+# set y limit
+ylimit = c(-1.4,5)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+# view final plot
+final_plot
+final_plot <- final_plot+ylab("TIM3")
+# save the plot
+ggsave(paste("./plt/TIM3.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 19 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 19 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 19 rows containing non-finite values (stat_summary).
+
+# for Activated Stroma--------------------
+# plot initial
+raw_list <- initial_violin_plotter("activated.stroma.sig")
+# view the raw plot and look at data.copy's gene column to determine 
+# upper and lower y limits for the final plot
+raw_list$plot
+# set y limit
+ylimit = c(-1.07,5)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+# view final plot
+final_plot
+final_plot <- final_plot+ylab("Activated Stroma")
+# save the plot
+ggsave(paste("./plt/activated.stroma.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 19 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 19 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 19 rows containing non-finite values (stat_summary).
+
+# for Gajewski --------------------
+# plot initial
+raw_list <- initial_violin_plotter("activated.stroma.sig")
+# view the raw plot and look at data.copy's gene column to determine 
+# upper and lower y limits for the final plot
+raw_list$plot
+# set y limit
+ylimit = c(-1.07,5)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+# view final plot
+final_plot
+final_plot <- final_plot+ylab("Activated Stroma")
+# save the plot
+ggsave(paste("./plt/activated.stroma.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 20 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 20 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 20 rows containing non-finite values (stat_summary).
+
+# for CD8 9 gene inflammatory signature --------------------
+# plot initial
+raw_list <- initial_violin_plotter("cd8.9gene.sig")
+# view the raw plot and look at data.copy's gene column to determine 
+# upper and lower y limits for the final plot
+raw_list$plot
+# set y limit
+ylimit = c(-0.82,4)
+final_plot <- final_plotter(raw_list$plot, raw_list$sorted_data, raw_list$gene, ylimit)
+# view final plot
+final_plot
+final_plot <- final_plot+ylab("CD8 9 gene inflammatory signature")
+# save the plot
+ggsave(paste("./plt/9.gene.inflammatory.violin.plot.with.pvalues.final",".png",sep = ""), final_plot, width = (3508/300), height = (701/300), dpi = 300)
+# for above: 
+# Warning messages:
+# 1: Removed 12 rows containing non-finite values (stat_ydensity). 
+# 2: Removed 12 rows containing non-finite values (stat_boxplot). 
+# 3: Removed 12 rows containing non-finite values (stat_summary).
