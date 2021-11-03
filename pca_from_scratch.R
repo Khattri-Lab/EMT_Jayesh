@@ -3,7 +3,7 @@
 # Jayesh Kumar Tiwari
 # Modified: November 4, 2021
 
-# Important: Skip to line 101 in the code, as the upper part is just experimental work
+# Important: Skip to line 111 in the code, as the upper part is just experimental work
 # and is kept for archival purposes, it is not useful in plotting the final figure.
 ##########################################
 
@@ -111,7 +111,7 @@ scatterplot3d(lala$x[,1], lala$x[,2], lala$x[,3], main = "PCA 3D plot")
 library(tidyverse)
 # read final data
 data <- read.table("final.working.data_v4.txt", header = T, sep = '\t')
-# for testing again (edit made on 3 October 2021)
+# for testing again (edit made on 3 November 2021)
 testing.data <- read.table("/mnt/swift/Jayesh/emt/script.jayesh.edited/txt/final.working.data_v4.txt", header = T, sep = '\t')
 # output: 4028 obs of 1024 variables
 
@@ -305,7 +305,7 @@ plotPCA <- function(x, nGroup) {
 plotPCA(pca_res$x[,1:2], 2)
 
 # testing
-# Note: Line 269 is a function, so need not be included in testing, can be just run from the same
+# Note: Line 275 is a function, so need not be included in testing, can be just run from the same
 plotPCA(testing.pca_res$x[,1:2], 2)
 # output: saved as plotPCA_fxn_output.png
 #
